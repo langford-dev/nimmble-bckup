@@ -113,7 +113,7 @@
       ref="topProgress"
       :height="topProgressHeight"
       colorShadow="=#ffffff00"
-      color="#00acee"
+      color="#1da1f2"
     ></vue-topprogress>
     <!-- </div> -->
 

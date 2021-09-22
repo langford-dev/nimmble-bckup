@@ -15,7 +15,7 @@
           </div>
         </div>
 
-        <div class="filled">
+        <div class="subscribe-btn-active">
           <p>Message</p>
         </div>
       </div>
@@ -24,8 +24,8 @@
     <vue-topprogress
       ref="topProgress"
       :height="topProgressHeight"
-      colorShadow="=#00acee"
-      color="#00acee"
+      colorShadow="=#1da1f2"
+      color="#1da1f2"
     ></vue-topprogress>
   </div>
 </template>
@@ -161,25 +161,6 @@ export default {
     justify-content: flex-start;
   }
 
-  .filled {
-    padding-top: 7px;
-    background: #000;
-    height: 36px;
-    border-radius: 100px;
-
-    p {
-      color: #fff;
-    }
-
-    &:hover {
-      background: #f1f1f1;
-
-      p {
-        color: #000;
-      }
-    }
-  }
-
   &:hover {
     background: #fff;
   }
@@ -203,8 +184,8 @@ export default {
 
   img {
     object-fit: cover;
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     border-radius: 100px;
     background: #f1f1f1;
     margin-right: 10px;

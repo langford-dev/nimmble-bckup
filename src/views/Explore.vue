@@ -10,7 +10,7 @@
               height="25"
               viewBox="0 0 25 25"
               fill="none"
-              stroke="#000"
+              stroke="#14171A"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -36,7 +36,7 @@
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#000"
+              stroke="#14171A"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -473,7 +473,7 @@ header {
     &:hover {
       background: #f1f1f1;
       p {
-        color: #000;
+        color: #14171A;
       }
     }
   }
@@ -551,7 +551,7 @@ header {
 //   }
 //   .filled {
 //     padding-top: 7px;
-//     background: #000;
+//     background: #14171A;
 //     height: 36px;
 //     border-radius: 100px;
 //     p {
@@ -560,7 +560,7 @@ header {
 //     &:hover {
 //       background: #f1f1f1;
 //       p {
-//         color: #000;
+//         color: #14171A;
 //       }
 //     }
 //   }
@@ -601,7 +601,7 @@ header {
 //   background: #fff;
 //   top: 0;
 //   z-index: 10;
-//   // box-shadow: 0px -17px 20px #000;
+//   // box-shadow: 0px -17px 20px #14171A;
 //   .number-badge {
 //     position: absolute;
 //     background: red;
@@ -630,7 +630,7 @@ header {
 //     justify-content: flex-end;
 //     align-items: center;
 //     a {
-//       color: #000;
+//       color: #14171A;
 //       margin: 0 20px;
 //       display: flex;
 //       align-items: center;

@@ -244,7 +244,7 @@ export default {
       })
       .catch((err) => {
         this.loading = false;
-        window.location = "/friends";
+        window.location = "/explore";
       });
     },
 
@@ -293,7 +293,7 @@ export default {
 }
 
 .no-account-link {
-  color: #000;
+  color: #14171A;
 
   a {
     // color: red;

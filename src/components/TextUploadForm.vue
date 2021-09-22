@@ -2,7 +2,7 @@
   <div class="upload-form">
     <div v-if="!loading">
 
-      <div class="input-wrapper">
+      <!-- <div class="input-wrapper">
         <div class="label">
           <img
             class="profile-avatar"
@@ -11,6 +11,15 @@
           <span>What you thinkin'?</span>
         </div>
         <textarea @click="observeUserInput()" id="post-text" v-model="title"></textarea>
+      </div> -->
+
+      <div class="input-wrapper">
+        <div>
+          <img
+          class="profile-avatar"
+          :src="oldProfile"/>
+        </div>
+        <textarea @click="observeUserInput()" id="post-text" v-model="title" placeholder="What ya up to?"></textarea>
       </div>
 
       <div class="more-post-buttons">
@@ -24,15 +33,15 @@
         </div>
 
         <router-link to="/share">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00acee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1da1f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
         </router-link>
 
         <router-link to="/share-video">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#00acee" stroke="#00acee" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1da1f2" stroke="#1da1f2" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
         </router-link>
 
         <router-link to="/new-collection">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00acee" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1da1f2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
         </router-link>
       </div>
     </div>
@@ -68,11 +77,13 @@
       sharing...
     </div>
 
+    <div class="toast" @click="viewNewPost()">Sent. Tap to view post</div>
+
     <vue-topprogress
       ref="topProgress"
       :height="topProgressHeight"
       colorShadow="=#ffffff00"
-      color="#00acee"
+      color="#1da1f2"
     ></vue-topprogress>
   </div>
 </template>
@@ -100,6 +111,7 @@ export default {
       oldProfile: localStorage.getItem('photoUrl'),
       title: "",
       postText: '',
+      newRepostPostId: '',
       linkified: '',
       mentionTextField: '',
       allTags: [],
@@ -109,6 +121,13 @@ export default {
   },
 
   mounted() {
+    // const toast = document.querySelector('.toast')
+    // toast.style.display = 'flex'
+
+    // setTimeout(() => {
+    //   toast.style.display = 'none'
+    // }, 4000)
+
     this.checkAuthState()
 
     window.addEventListener('load', () => {
@@ -129,22 +148,21 @@ export default {
   },
 
   methods: {
+
+    viewNewPost() {
+      const toast = document.querySelector('.toast')
+      toast.style.display = 'none'
+      
+      this.$router.push({
+        name: "Status",
+        params: {
+          id: this.newRepostPostId,
+        },
+      });
+    },
+
     observeUserInput() {
       this.showMentionPopUp = true
-      // let postTextBox = document.getElementById('post-text')
-      
-      // postTextBox.addEventListener('keydown', event => {
-
-      //   if(event.key == '@') {
-      //     this.showMentionPopUp = true
-      //   }
-        
-      //   if(String.fromCharCode(event.keyCode) === '@') {
-      //     this.showMentionPopUp = true
-      //   }
-
-      //   else this.showMentionPopUp = false
-      // })
     },
 
     async mentionedUserOnclick(username) {
@@ -202,9 +220,19 @@ export default {
           }
         }
         
+
+
+        const toast = document.querySelector('.toast')
+        toast.style.display = 'flex'
+        // setTimeout(() => {
+          // toast.style.display = 'none'
+        // }, 4000)
+
+
         setTimeout(() => {
+          toast.style.display = 'none'
           this.$refs.topProgress.done();
-        }, 2000)
+        }, 6000)
       }
     },
 
@@ -216,6 +244,12 @@ export default {
 
     async sharePost() {
       try {
+        
+        // const toast = document.querySelector('.toast')
+        // toast.style.display = 'flex'
+
+        // setTimeout(() => {}, 4000)
+
         if (this.title != '') {
           this.loading = true;
           this.$refs.topProgress.start();
@@ -255,6 +289,7 @@ export default {
               'isVideo': false,
             })
             .then((val) => {
+              this.newRepostPostId = val.id
               t.updateLastPostTime()
               t.updateCoins()
               t.sendMentionAlerts(val.id)
@@ -337,7 +372,7 @@ export default {
 
           this.loading = false;
           // this.$refs.topProgress.done();
-          this.$router.replace("/");
+          // this.$router.replace("/");
         })
         .catch((err) => {
           this.loading = false;
@@ -350,6 +385,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .upload-form {
   // padding: 10px;
   margin-bottom: 100px;
@@ -359,6 +395,11 @@ export default {
 }
 
 .people-container {}
+
+.profile-avatar {
+  width: 45px;
+  height: 45px;
+}
 
 .user-card {
   display: flex;
@@ -388,7 +429,7 @@ export default {
       background: #f1f1f1;
 
       p {
-        color: #000;
+        color: #14171A;
       }
     }
   }
@@ -439,12 +480,8 @@ export default {
   svg {
     position: relative;
     top: 5px;
-    // background: #00acee1c;
     padding: 0px;
     width: 21px;
-    // height: 35px;
-    // padding: 7px;
-    // border-radius: 100%;
   }
 }
 
@@ -502,6 +539,7 @@ export default {
     border: 1px solid #E6E7E7;
     border-radius: 100px;
     width: 100%;
+    outline: none;
   }
 
   .title {
@@ -510,31 +548,30 @@ export default {
 }
 
 .input-wrapper {
-  margin-bottom: 30px;
   margin-top: 20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
 }
 
-input[type="text"],
-input[type="password"],
-textarea,
-select {
+textarea {
   width: 100%;
   padding: 13px 12px;
+  padding-top: 0;
   font-size: 17px;
   border: none;
   background: #fff;
   border-radius: 10px;
-  border: 1px solid #E6E7E7;
-}
-
-textarea {
-  // border-radius: 0;
-  height: 136px;
+  height: 100px;
   resize: none;
+  outline: none;
+  padding-left: 0;
+  position: relative;
+  top: -21px;
+  margin-left: 10px;
 }
 
-input,
-textarea {
-  outline: none;
+.input-wrapper ::placeholder {
+  font-size: 1.35rem
 }
 </style>

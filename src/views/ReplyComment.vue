@@ -22,7 +22,7 @@
                 <span v-if="isVerified" class="verified-btn">
                   <!-- <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="#fff" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> -->
 
-                  <svg width="15px" height="15px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="verifiedIconTitle" stroke="#00acee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000"> <title id="verifiedIconTitle">Verified</title> <path d="M8 12.5L10.5 15L16 9.5"/> <path d="M12 22C13.2363 22 14.2979 21.2522 14.7572 20.1843C14.9195 19.8068 15.4558 19.5847 15.8375 19.7368C16.9175 20.1672 18.1969 19.9453 19.0711 19.0711C19.9452 18.1969 20.1671 16.9175 19.7368 15.8376C19.5847 15.4558 19.8068 14.9195 20.1843 14.7572C21.2522 14.2979 22 13.2363 22 12C22 10.7637 21.2522 9.70214 20.1843 9.24282C19.8068 9.08046 19.5847 8.54419 19.7368 8.16246C20.1672 7.08254 19.9453 5.80311 19.0711 4.92894C18.1969 4.05477 16.9175 3.83286 15.8376 4.26321C15.4558 4.41534 14.9195 4.1932 14.7572 3.8157C14.2979 2.74778 13.2363 2 12 2C10.7637 2 9.70214 2.74777 9.24282 3.81569C9.08046 4.19318 8.54419 4.41531 8.16246 4.26319C7.08254 3.83284 5.80311 4.05474 4.92894 4.92891C4.05477 5.80308 3.83286 7.08251 4.26321 8.16243C4.41534 8.54417 4.1932 9.08046 3.8157 9.24282C2.74778 9.70213 2 10.7637 2 12C2 13.2363 2.74777 14.2979 3.81569 14.7572C4.19318 14.9195 4.41531 15.4558 4.26319 15.8375C3.83284 16.9175 4.05474 18.1969 4.92891 19.0711C5.80308 19.9452 7.08251 20.1671 8.16243 19.7368C8.54416 19.5847 9.08046 19.8068 9.24282 20.1843C9.70213 21.2522 10.7637 22 12 22Z"/> </svg>
+                  <svg width="15px" height="15px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="verifiedIconTitle" stroke="#1da1f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#14171A"> <title id="verifiedIconTitle">Verified</title> <path d="M8 12.5L10.5 15L16 9.5"/> <path d="M12 22C13.2363 22 14.2979 21.2522 14.7572 20.1843C14.9195 19.8068 15.4558 19.5847 15.8375 19.7368C16.9175 20.1672 18.1969 19.9453 19.0711 19.0711C19.9452 18.1969 20.1671 16.9175 19.7368 15.8376C19.5847 15.4558 19.8068 14.9195 20.1843 14.7572C21.2522 14.2979 22 13.2363 22 12C22 10.7637 21.2522 9.70214 20.1843 9.24282C19.8068 9.08046 19.5847 8.54419 19.7368 8.16246C20.1672 7.08254 19.9453 5.80311 19.0711 4.92894C18.1969 4.05477 16.9175 3.83286 15.8376 4.26321C15.4558 4.41534 14.9195 4.1932 14.7572 3.8157C14.2979 2.74778 13.2363 2 12 2C10.7637 2 9.70214 2.74777 9.24282 3.81569C9.08046 4.19318 8.54419 4.41531 8.16246 4.26319C7.08254 3.83284 5.80311 4.05474 4.92894 4.92891C4.05477 5.80308 3.83286 7.08251 4.26321 8.16243C4.41534 8.54417 4.1932 9.08046 3.8157 9.24282C2.74778 9.70213 2 10.7637 2 12C2 13.2363 2.74777 14.2979 3.81569 14.7572C4.19318 14.9195 4.41531 15.4558 4.26319 15.8375C3.83284 16.9175 4.05474 18.1969 4.92891 19.0711C5.80308 19.9452 7.08251 20.1671 8.16243 19.7368C8.54416 19.5847 9.08046 19.8068 9.24282 20.1843C9.70213 21.2522 10.7637 22 12 22Z"/> </svg>
                 </span>
               </b>
             </div>
@@ -37,7 +37,7 @@
                   height="18"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#9c9c9c"
+                  stroke="#657786"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -67,7 +67,7 @@
                   ></path>
                 </svg>
 
-                <div class="likes-num" v-if="likes > 0">{{ likes }}</div>
+                <!-- <div class="likes-num" v-if="likes > 0">{{ likes }}</div> -->
               </div>
 
               <div @click="sharePost()">
@@ -77,7 +77,7 @@
                   height="18"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#9c9c9c"
+                  stroke="#657786"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -95,7 +95,7 @@
                   height="18"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#9c9c9c"
+                  stroke="#657786"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -109,8 +109,25 @@
                 </svg>
               </div>
 
-              <div style="position: relative; top: 0">
-                <svg @click="showPostDialog = !showPostDialog" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+              <div>
+                <!-- <svg  xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#AAB8C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg> -->
+                <svg
+                  @click="showPostDialog = !showPostDialog"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#657786"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-more-horizontal"
+                >
+                  <circle cx="12" cy="12" r="1"></circle>
+                  <circle cx="19" cy="12" r="1"></circle>
+                  <circle cx="5" cy="12" r="1"></circle>
+               </svg>
               </div>
             </div>
           </div>
@@ -196,12 +213,13 @@
     <br>
 
     <div class="dialog-sheet" v-if="showPostDialog" key="postDialog">
-      <h1 class="closeDialogBtn" @click="showPostDialog = false">&times;</h1>
+      <p class="closeDialogBtn" @click="showPostDialog = false">&times;</p>
+       
        <div @click="save()" v-if="!isSaved && isSignedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>Mark for later
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#AAB8C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>Mark for later
       </div>
       <div @click="removeSaved()" v-if="isSaved && isSignedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> Unmark post</div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#AAB8C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> Unmark post</div>
       <div @click="downloadPhoto()">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -209,7 +227,7 @@
           height="22"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="black"
+          stroke="#AAB8C2"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -227,8 +245,8 @@
           width="22"
           height="22"
           viewBox="0 0 24 24"
-          fill="#242424"
-          stroke="#242424"
+          fill="#AAB8C2"
+          stroke="#AAB8C2"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -249,7 +267,7 @@
           height="22"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="black"
+          stroke="#AAB8C2"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -270,7 +288,7 @@
           height="22"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="black"
+          stroke="#AAB8C2"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -311,7 +329,7 @@
       key="collectionDialog"
       style="max-height: 60vh; overflow-y: scroll; padding-top: 90px"
     >
-      <h1 class="closeDialogBtn" @click="closeCollectionDialog()">&times;</h1>
+      <p class="closeDialogBtn" @click="closeCollectionDialog()">&times;</p>
 
       <!-- <div v-if="loading" class="loading-more" style="padding-left: 0">
         <div class="big-spin">
@@ -324,7 +342,7 @@
           v-if="loading"
           :animation-duration="1000"
           :size="30"
-          color="#242424"
+          color="#AAB8C2"
         />
       </div>
 
@@ -419,8 +437,8 @@
     <vue-topprogress
       ref="topProgress"
       :height="topProgressHeight"
-      colorShadow="=#00acee"
-      color="#00acee"
+      colorShadow="=#1da1f2"
+      color="#1da1f2"
     ></vue-topprogress>
 
   </div>
@@ -1129,7 +1147,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 106px;
+  width: 86px;
   position: relative;
   top: -9px;
 
@@ -1146,7 +1164,7 @@ export default {
   flex-direction: column;
 
   .username-text {
-    color: #9c9c9c;
+    color: #657786;
     // -webkit-line-clamp: 1;
     // -webkit-box-orient: vertical;
     // overflow: hidden;
@@ -1166,7 +1184,7 @@ export default {
   flex-wrap: wrap;
   
   div {
-    color: #9c9c9c;
+    color: #657786;
     margin-right: 10px;
   }
 
@@ -1178,7 +1196,7 @@ export default {
 
 video {
   min-width: 95.8%;
-  background: #000;
+  background: #14171A;
 
 
   width: 95.8%;
@@ -1222,7 +1240,7 @@ video {
     position: absolute;
     top: 42%;
     left: 42%;
-    background: #00acee;
+    background: #1da1f2;
     padding: 13px;
     border-radius: 100px;
     padding-left: 15px;
@@ -1278,13 +1296,14 @@ video {
   width: 105.2%;
   -o-object-fit: cover;
   object-fit: cover;
-  background: gainsboro;
+  background: #AAB8C2;
   border-radius: 13px;
   margin-top: 8px;
   margin-left: -10px;
   margin-bottom: -14px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  border: 1px solid #E6E7E7;
 }
 
 .top-bar {
@@ -1378,7 +1397,7 @@ video {
   }
 
   .poster-info {
-    // color: #000;
+    // color: #14171A;
     // display: flex;
     // align-items: center;
 
@@ -1410,6 +1429,7 @@ video {
     width: 45px;
     height: 45px;
     border-radius: 10px;
+    background: #AAB8C2;
   }
 }
 
@@ -1454,7 +1474,7 @@ video {
     font-weight: bold;
     font-family: 'bold', sans-serif;
 
-    background: #00acee;
+    background: #1da1f2;
     color: #fff;
     border-radius: 100px;
     padding: 4px 10px;
@@ -1470,10 +1490,11 @@ video {
   width: 95.8%;
   -o-object-fit: cover;
   object-fit: cover;
-  background: gainsboro;
+  background: #AAB8C2;
   margin-top: 10px;
   margin: 10px;
   border-radius: 12px;
+  border: 1px solid #E6E7E7;
 
   &:hover {
     // transform: scale(0.98);
@@ -1508,7 +1529,7 @@ video {
 }
 
 .bold {
-  color: #000;
+  color: #14171A;
   font-family: 'bold';
 }
 

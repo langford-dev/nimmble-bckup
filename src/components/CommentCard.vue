@@ -13,7 +13,7 @@
 								{{commenterName}}
 
 								<span v-if="isVerified" class="verified-btn">
-									<svg width="15px" height="15px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="verifiedIconTitle" stroke="#00acee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000"> <title id="verifiedIconTitle">Verified</title> <path d="M8 12.5L10.5 15L16 9.5"/> <path d="M12 22C13.2363 22 14.2979 21.2522 14.7572 20.1843C14.9195 19.8068 15.4558 19.5847 15.8375 19.7368C16.9175 20.1672 18.1969 19.9453 19.0711 19.0711C19.9452 18.1969 20.1671 16.9175 19.7368 15.8376C19.5847 15.4558 19.8068 14.9195 20.1843 14.7572C21.2522 14.2979 22 13.2363 22 12C22 10.7637 21.2522 9.70214 20.1843 9.24282C19.8068 9.08046 19.5847 8.54419 19.7368 8.16246C20.1672 7.08254 19.9453 5.80311 19.0711 4.92894C18.1969 4.05477 16.9175 3.83286 15.8376 4.26321C15.4558 4.41534 14.9195 4.1932 14.7572 3.8157C14.2979 2.74778 13.2363 2 12 2C10.7637 2 9.70214 2.74777 9.24282 3.81569C9.08046 4.19318 8.54419 4.41531 8.16246 4.26319C7.08254 3.83284 5.80311 4.05474 4.92894 4.92891C4.05477 5.80308 3.83286 7.08251 4.26321 8.16243C4.41534 8.54417 4.1932 9.08046 3.8157 9.24282C2.74778 9.70213 2 10.7637 2 12C2 13.2363 2.74777 14.2979 3.81569 14.7572C4.19318 14.9195 4.41531 15.4558 4.26319 15.8375C3.83284 16.9175 4.05474 18.1969 4.92891 19.0711C5.80308 19.9452 7.08251 20.1671 8.16243 19.7368C8.54416 19.5847 9.08046 19.8068 9.24282 20.1843C9.70213 21.2522 10.7637 22 12 22Z"/> </svg>
+									<svg width="15px" height="15px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="verifiedIconTitle" stroke="#1da1f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#14171A"> <title id="verifiedIconTitle">Verified</title> <path d="M8 12.5L10.5 15L16 9.5"/> <path d="M12 22C13.2363 22 14.2979 21.2522 14.7572 20.1843C14.9195 19.8068 15.4558 19.5847 15.8375 19.7368C16.9175 20.1672 18.1969 19.9453 19.0711 19.0711C19.9452 18.1969 20.1671 16.9175 19.7368 15.8376C19.5847 15.4558 19.8068 14.9195 20.1843 14.7572C21.2522 14.2979 22 13.2363 22 12C22 10.7637 21.2522 9.70214 20.1843 9.24282C19.8068 9.08046 19.5847 8.54419 19.7368 8.16246C20.1672 7.08254 19.9453 5.80311 19.0711 4.92894C18.1969 4.05477 16.9175 3.83286 15.8376 4.26321C15.4558 4.41534 14.9195 4.1932 14.7572 3.8157C14.2979 2.74778 13.2363 2 12 2C10.7637 2 9.70214 2.74777 9.24282 3.81569C9.08046 4.19318 8.54419 4.41531 8.16246 4.26319C7.08254 3.83284 5.80311 4.05474 4.92894 4.92891C4.05477 5.80308 3.83286 7.08251 4.26321 8.16243C4.41534 8.54417 4.1932 9.08046 3.8157 9.24282C2.74778 9.70213 2 10.7637 2 12C2 13.2363 2.74777 14.2979 3.81569 14.7572C4.19318 14.9195 4.41531 15.4558 4.26319 15.8375C3.83284 16.9175 4.05474 18.1969 4.92891 19.0711C5.80308 19.9452 7.08251 20.1671 8.16243 19.7368C8.54416 19.5847 9.08046 19.8068 9.24282 20.1843C9.70213 21.2522 10.7637 22 12 22Z"/> </svg>
 								</span>
 							</span>
 							<span class="dot" v-if="date != null && date != ''"></span>
@@ -30,7 +30,7 @@
 			                  height="15"
 			                  viewBox="0 0 24 24"
 			                  fill="none"
-			                  stroke="#9c9c9c"
+			                  stroke="#657786"
 			                  stroke-width="2"
 			                  stroke-linecap="round"
 			                  stroke-linejoin="round"
@@ -61,7 +61,7 @@
 			                  ></path>
 			                </svg>
 
-			                <svg @click="replyComment()" style="margin-right: 14px;" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9c9c9c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+			                <svg @click="replyComment()" style="margin-right: 14px;" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
 			                	</svg>
 
 			                <svg
@@ -71,7 +71,7 @@
 				                height="15"
 				                viewBox="0 0 24 24"
 				                fill="none"
-				                stroke="#9c9c9c"
+				                stroke="#657786"
 				                stroke-width="2"
 				                stroke-linecap="round"
 				                stroke-linejoin="round"
@@ -93,7 +93,7 @@
 
 						<div class="like-icon-and-num" @click="replyComment()">
 		                	<div>
-		                		<!-- <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9c9c9c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+		                		<!-- <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
 			                	</svg> -->
 			                	
 			                	<div v-if="replies > 1" class="send-comment-btn">
@@ -119,7 +119,8 @@
 	      <h1 class="closeDialogBtn" @click="showCommentDialogue = false">&times;</h1>
 
 	      <div @click="replyComment()">Send a reply</div>
-	      <div v-if="!isMyComment" class="primary-color">Report comment</div>
+
+	      <div @click="sendReport()" v-if="!isMyComment" class="primary-color">Report comment</div>
 	      <div @click="deleteComment()" v-if="isMyComment" class="primary-color">Delete your comment</div>
 	    </div>
     </div>
@@ -218,6 +219,15 @@ export default {
 	},
 
 	methods: {
+
+	    async sendReport() {
+	      this.$router.push({
+	        name: "Report",
+	        params: {
+	          id: this.commentId,
+	        },
+	      });
+	    },
 
 		async getNewCommentInfo() {
 			// console.log(this.$route.params.id)
@@ -326,16 +336,27 @@ export default {
 
 	        if (this.isLiked) {
           		await db
+		        // .collection("Posts")
+		        // .doc(this.$route.params.id)
+		        // .collection("Comments")
+		        // .doc(this.commentId)
+		        // .collection('Likes')
+		        // .doc(localStorage.getItem('uid'))
+
 		        .collection("Posts")
 		        .doc(this.$route.params.id)
 		        .collection("Comments")
 		        .doc(this.commentId)
 		        .collection('Likes')
 		        .doc(localStorage.getItem('uid'))
+
+
 	            .set({
 	              liked: true,
 	              userId: localStorage.getItem("uid"),
 	            });
+
+
 	        }
 
 	        if (!this.isLiked) {
@@ -346,6 +367,14 @@ export default {
 		        .doc(this.commentId)
 		        .collection('Likes')
 		        .doc(localStorage.getItem('uid'))
+
+		        // .collection("Posts")
+		        // .doc(this.$route.params.id)
+		        // .collection("Comments")
+		        // .doc(this.commentId)
+		        // .collection('Likes')
+		        // .doc(localStorage.getItem('uid'))
+		        
 	            .delete();
 	        }
 	      } else alert("please sign in");
@@ -405,9 +434,20 @@ export default {
 		},
 
 	    convertDate() {
+	      // var dateValue = this.newCommentTime.toDate();
+	      // var stringDate = new Date(this.newCommentTime.seconds * 1000);
+	      // this.date = stringDate.toDateString();
+
+
 	      var dateValue = this.newCommentTime.toDate();
-	      var stringDate = new Date(this.newCommentTime.seconds * 1000);
-	      this.date = stringDate.toDateString();
+	      var stringDate = new Date(this.newCommentTime.seconds * 1000)
+
+
+	      var day = Date(this.newCommentTime).substring(8, 10)
+	      var month = Date(this.newCommentTime).substring(4, 7)
+	      // var year = Date(this.newCommentTime).substring(11, 15)
+
+	      this.date = `${day} ${month}`
 	    },
 	},
 };
@@ -453,8 +493,10 @@ export default {
 }
 
 .comment-text-p {
-	font-size: 13px;
+	font-size: 0.93rem;
 	padding-right: 10px;
+	margin: 5px 0;
+	line-height: 1.42;
 }
 
 .commenter-name-p {
@@ -486,7 +528,7 @@ export default {
 
 	.name-action-icons {
 		position: absolute;
-		right: 0;
+		right: 15px;
 	}
 }
 

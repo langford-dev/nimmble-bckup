@@ -1038,7 +1038,7 @@ svg {
   position: absolute;
   top: 37%;
   left: 41%;
-  background: #00acee;
+  background: #1da1f2;
   padding: 7px;
   padding-left: 7px;
   border-radius: 100px;

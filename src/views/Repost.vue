@@ -35,11 +35,15 @@
       </div>
     </div>
 
+    <div class="toast" @click="viewNewPost()">Sent. Tap to view post</div>
+    
+    <BottomNav />
+
     <vue-topprogress
       ref="topProgress"
       :height="topProgressHeight"
-      colorShadow="=#00acee"
-      color="#00acee"
+      colorShadow="=#1da1f2"
+      color="#1da1f2"
     ></vue-topprogress>
   </div>
 </template>
@@ -48,6 +52,7 @@
 import { vueTopprogress } from "vue-top-progress";
 import VLazyImage from "v-lazy-image";
 import BackHeader from "@/components/BackHeader";
+import BottomNav from "@/components/BottomNav";
 import firebaseApp from "../firebaseConfig.js";
 const db = firebaseApp.firestore();
 
@@ -70,6 +75,7 @@ export default {
       postId: '',
       isRepost: '',
       video: null,
+      newRepostPostId: '',
 
       topProgressHeight: 4,
 
@@ -87,9 +93,23 @@ export default {
     vueTopprogress,
     VLazyImage,
     BackHeader,
+    BottomNav,
   },
 
   methods: {
+
+    viewNewPost() {
+      const toast = document.querySelector('.toast')
+      toast.style.display = 'none'
+      
+      this.$router.push({
+        name: "Status",
+        params: {
+          id: this.newRepostPostId,
+        },
+      });
+    },
+
     async getPostInfo() {
       await db
       .collection("Posts")
@@ -159,10 +179,9 @@ export default {
           'postId': this.$route.params.id,
         })
         .then((val) => {
+          this.newRepostPostId = val.id
           this.commentTitle = ''
-          this.$refs.topProgress.done()
-          alert('Reposted......');
-          this.$router.back()
+          this.updateRepostDocs()
         })
       } else {
         await db
@@ -190,12 +209,82 @@ export default {
           'postId': this.$route.params.id,
         })
         .then((val) => {
+          this.newRepostPostId = val.id
           this.commentTitle = ''
-          this.$refs.topProgress.done()
-          alert('Reposted......');
-          this.$router.back()
+          this.updateRepostDocs()
+
+          
         })
       }
+    },
+
+    async updateRepostDocs() {
+      const toast = document.querySelector('.toast')
+      toast.style.display = 'flex'
+      
+      await db
+      .collection("Posts")
+      .doc(this.$route.params.id)
+      .collection("Reposts")
+      .doc(localStorage.getItem("uid"))
+      .get()
+      .then(doc => {
+        console.log(doc.exists)
+
+        if(doc.exists) {
+          setTimeout(() => {
+            toast.style.display = 'none'
+            this.$refs.topProgress.done()
+          }, 6000)
+        }
+
+        if(!doc.exists) {
+          this.addMyDoc()
+        }
+      })
+    },
+
+    async addMyDoc() {
+      await db
+      .collection("Posts")
+      .doc(this.$route.params.id)
+      .collection("Reposts")
+      .doc(localStorage.getItem("uid"))
+      .set({
+        liked: true,
+        userId: localStorage.getItem("uid"),
+      });
+
+      this.sendRepostAlert()
+    },
+
+    async sendRepostAlert() {
+      const toast = document.querySelector('.toast')
+      toast.style.display = 'flex'
+
+      if(this.posterUid != localStorage.getItem('uid')) {
+        await db
+        .collection('Users')
+        .doc(this.posterUid)
+        .collection('Notifications')
+        .add({
+          'type': 'repost',
+          'userProfile': localStorage.getItem('photoUrl'),
+          'notificationText': `${localStorage.getItem('name')} reposted your post`,
+          'targetPageId': this.newRepostPostId,
+          'notificationTime': firebaseApp.serverTimestamp,
+          'userId': localStorage.getItem('uid'),
+          'username': localStorage.getItem('name'),
+          'targetText': this.commentTitle,
+          'isRead': false,
+        })
+      }
+          
+      
+      setTimeout(() => {
+        toast.style.display = 'none'
+        this.$refs.topProgress.done()
+      }, 6000)
     },
   }
 };
@@ -206,22 +295,23 @@ export default {
 .repost-post-image {
   min-height: 130px;
   max-height: 280px;
-  width: 106%;
+  width: 110%;
   -o-object-fit: cover;
   object-fit: cover;
-  background: gainsboro;
+  background: #AAB8C2;
   border-radius: 13px;
   margin-top: 0;
   margin-left: -10px;
   margin-bottom: -14px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  border-top: 1px solid #E6E7E7;
 }
 
 .poster-image {
   width: 30px;
   height: 30px;
-  background: gainsboro;
+  background: #AAB8C2;
   border-radius: 100px;
   object-fit: cover;
   margin-right: 8px;
@@ -237,7 +327,6 @@ export default {
 }
 
 .input-wrapper {
-  margin-bottom: 20px;
   margin-top: 20px;
   display: flex;
   align-items: baseline;

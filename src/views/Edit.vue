@@ -152,7 +152,8 @@ select {
   height: 192px;
   border-radius: 200%;
   object-fit: cover;
-  background: gainsboro;
+  background: #e1e8ed;
+  border: 3px solid #1da1f2;
 }
 
 select * {
@@ -173,7 +174,7 @@ select * {
 .img-select-btn {
   margin: 10px 0;
   text-align: center;
-  border: 2px solid gainsboro;
+  border: 2px solid #657786;
   padding: 15px;
   border-style: dashed;
   border-width: medium;
@@ -185,7 +186,7 @@ select * {
   font-size: 15px;
   color: #6a6a6a;
   // font-weight: 600;
-  // margin-bottom: 13px;
+  margin-bottom: 5px;
 }
 
 .main {

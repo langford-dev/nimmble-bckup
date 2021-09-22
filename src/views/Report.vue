@@ -1,20 +1,28 @@
 <template>
   <div class="share-page">
-    <BackHeader name="Report an issue" />
+    <BackHeader name="Send a report" />
     <div class="main">
       <div>
-        <p class="section-name lg-txt">Your feedback</p>
+        <p class="section-name lg-txt">Report an issue</p>
         <!-- <p>Share your experience</p> -->
         <!-- <br /> -->
-        <!-- <br /> -->
-        <div class="input-wrapper">
+        <!-- <div class="input-wrapper">
           <p class="label">Your email</p>
           <input v-model="email" type="email" />
-        </div>
+        </div> -->
 
-        <div class="input-wrapper">
+       <!--  <div class="input-wrapper">
           <p class="label">Target ID</p>
           <input v-model="targetID" type="text" disabled/>
+        </div> -->
+
+        <div class="input-wrapper">
+          <p class="label">What are you reporting?</p>
+          <select id="report-target-type" @click="setReasonType()">
+            <option>A post</option>
+            <option>A comment</option>
+            <option>A user</option>
+          </select>
         </div>
 
         <div class="input-wrapper">
@@ -26,15 +34,6 @@
             <option>I'ts a spam</option>
             <option>It looks like a pedophile trap</option>
             <option>It expresses intensions of self-harm or suicide</option>
-          </select>
-        </div>
-
-        <div class="input-wrapper">
-          <p class="label">What are you reporting?</p>
-          <select id="report-target-type" @click="setReasonType()">
-            <option>A post</option>
-            <option>A comment</option>
-            <option>A user</option>
           </select>
         </div>
 

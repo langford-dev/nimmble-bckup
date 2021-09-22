@@ -5,11 +5,11 @@
         <div class="logo-container" @click="goBack()">
           <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
+              width="18"
+              height="18"
               viewBox="0 0 25 25"
               fill="none"
-              stroke="#313131"
+              stroke="#14171A"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -34,7 +34,7 @@
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#313131"
+              stroke="#14171A"
               stroke-width="4"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -116,12 +116,17 @@ export default {
   overflow: hidden;
 
   p {
-    font-weight: bold;
-    font-size: 16px;
+    font-family: 'bold', sans-serif;
     position: absolute;
-    left: 0;
-    top: 10px;
-    left: 56px;
+    top: 17px;
+    font-size: 1.1rem;
+    left: 50px;
+    color: #14171A;
   }
+}
+
+.logo-container svg {
+  width: 26px;
+  height: 26px;
 }
 </style>

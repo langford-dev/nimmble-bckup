@@ -108,7 +108,7 @@ $body-color: #f8f9fb;
 $accent-color: red;
 
 .offline {
-  background: #f3f3f3;
+  background: #14171A;
   position: fixed;
   z-index: 4;
   padding: 12px 10px;

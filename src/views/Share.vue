@@ -1,6 +1,6 @@
 <template>
   <div class="share-page">
-    <BackHeader name="Share a photo" />
+    <BackHeader name="Share" />
     <div class="main">
       <UploadForm />
     </div>

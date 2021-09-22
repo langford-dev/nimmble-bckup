@@ -24,8 +24,8 @@
     <vue-topprogress
       ref="topProgress"
       :height="topProgressHeight"
-      colorShadow="=#00acee"
-      color="#00acee"
+      colorShadow="=#1da1f2"
+      color="#1da1f2"
     ></vue-topprogress>
   </div>
 </template>
@@ -121,7 +121,7 @@ export default {
 
   .filled {
     padding-top: 7px;
-    background: #000;
+    background: #14171A;
     height: 36px;
     border-radius: 100px;
 
@@ -133,7 +133,7 @@ export default {
       background: #f1f1f1;
 
       p {
-        color: #000;
+        color: #14171A;
       }
     }
   }

@@ -8,15 +8,6 @@
   src:  url('../assets/default.ttf');
 }
 
-/*@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');*/
-
-/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');*/
-
-/*@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');*/
-
-/*@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;600&display=swap');*/
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
 
 html {
@@ -31,39 +22,11 @@ html {
   -ms-user-select: none;
   user-select: none;
   line-height: 1.3;
-  color: rgb(33, 25, 34);
+  color: #14171A;
   padding: 0;
   margin: 0;
   zoom: reset;
-  
-/*  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-  Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
-  Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol";*/
-
-  /*font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-  Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
-  Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol";*/
-
-/*  font-family: 'Oxygen', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-  Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
-  Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol";*/
-/*
-  font-family: 'Maven Pro', system-ui, 'system-ui', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-  Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ,
-  Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol";*/
-
-  /*font-family: 'Open sans', system-ui, 'Helvetica', sans-serif, 'Helvetica Neue';*/
-  
   font-family: 'default', system-ui, 'Helvetica', sans-serif, 'Helvetica Neue';
-  
   box-sizing: border-box;
   font-weight: 400;
   font-size: 0.93rem;
@@ -72,8 +35,8 @@ html {
 :root {
   /*--primary-color: #2196F3;*/
   /*--primary-color: #1DA1F2;*/
-  --primary-color: #00acee;
-  --border-color: #E6E7E7;
+  --primary-color: #1da1f2;
+  --border-color: #f5f8fa;
   overflow-x: hidden;
 }
 
@@ -132,107 +95,51 @@ img {
   border-radius: 182px;
   object-fit: cover;
   margin-right: 10px;
-  background: gainsboro;
+  background: #657786;
 }
 
-.drop-down-btn {
+/*.drop-down-btn {
   opacity: 0.4;
   margin-left: 5px;
   margin-bottom: 2px;
-}
+}*/
 
 .primary-btn {
   background: var(--primary-color);
-  padding: 12px 15px;
-  border-radius: 100px;
-  font-weight: bold;
-  font-family: 'bold', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   width: max-content;
-  /*margin: auto;*/
-  padding-top: 16px;
+  white-space: nowrap;
+  padding: 10px 20px;
+  border-radius: 100px;
 }
 
 .primary-btn:hover {
-  background: #f4f4f4;
+  /*background: #f4f4f4;*/
 }
 
 .primary-btn:hover p {
-  color: var(--primary-color);
+  /*color: var(--primary-color);*/
 }
 
 .primary-btn p {
-  color: #fff;
-  font-weight: bold;
-  font-family: 'bold', sans-serif;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  white-space:  nowrap;
-}
-
-.primary-btn :hover {
-  background: #f4f4f4;
   color: #fff;
 }
 
 .primary-alt-btn {
   /*background: #f4f4f4;*/
-  background: #000;
+  background: #14171A;
+  white-space: nowrap;
 }
 
 .primary-alt-btn p {
   color: #fff;
 }
 
-.filled {
-  background: #f4f4f4;
-  padding: 14px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  height: 43px;
-
-    -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.filled:hover p,
-.filled:hover a {
-  color: var(--primary-color);
-}
-
-.filled a:hover svg {
-  stroke: var(--primary-color);
-  fill: var(--primary-color);
-}
-
-.filled a img,
-svg {
-  margin-right: 10px;
-  margin-top: -3px;
-}
-
-.filled a {
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .black {
-  background: #000;
-  border-color: #000;
+  background: #14171A;
+  border-color: #14171A;
 }
 
 .title {
@@ -245,25 +152,41 @@ svg {
 }
 
 .subscribe-btn {
-  padding-top: 18px;
   border: 1px solid var(--primary-color);
   background: #fff;
+  padding: 8px 20px;
+  border-radius: 100px;
+  white-space: nowrap;
 }
 
 .subscribe-btn p {
+  position: relative;
+  top: 2px;
+  font-family: 'bold';
   color: var(--primary-color);
 }
 
-.subscribe-btn:hover {
-  background: var(--primary-color);
+.subscribe-btn-active {
+  border: 1px solid #14171A;
+  background: #14171A;
+  padding: 8px 20px;
+  border-radius: 100px;
+  white-space: nowrap;
 }
 
-.subscribe-btn:hover p {
+.subscribe-btn-active p {
+  position: relative;
+  top: 1px;
   color: #fff;
+  font-family: 'bold';
 }
 
-.primary-btn p:hover {
-  background: transparent;
+.primary-btn:hover {
+  background: #f1f1f1;
+}
+
+.subscribe-btn:hover {
+  background: #f1f1f1;
 }
 
 /*
@@ -292,7 +215,7 @@ svg {
 position: absolute;
     border: 5px solid transparent;
     border-radius: 50%;
-    border-top: 5px solid #000;
+    border-top: 5px solid #14171A;
     width: 30px;
     height: 30px;
     -webkit-animation: inner-spin 2s linear infinite;
@@ -389,7 +312,7 @@ position: absolute;
 }
 
 .bottom-nav  a {
-    color: #000;
+    color: #14171A;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -433,7 +356,7 @@ position: absolute;
 }
 
 .dot {
-  background: #000;
+  background: #14171A;
   width: 4px;
   height: 4px;
   border-radius: 100px;
@@ -466,7 +389,7 @@ position: absolute;
 .bottom-nav-icons {
   /*border-top: 2px solid #f1f1f1;*/
   /* box-shadow: -2px 12px 50px -3px rgb(0 0 0 / 8%); */
-  /*background: #000;*/
+  /*background: #14171A;*/
   width: 100%;
   background: #fff;
   display: flex;
@@ -481,7 +404,7 @@ position: absolute;
 }
 
 .bottom-nav  a {
-  color: #000;
+  color: #14171A;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -527,7 +450,7 @@ position: absolute;
   /*color: var(--primary-color);*/
   /*background: var(--primary-color);*/
   /*border-radius: 100px;*/
-  color: #000;
+  color: #14171A;
   font-weight: bold;
   font-family: 'bold', sans-serif;
 }
@@ -547,8 +470,6 @@ position: absolute;
   color: #999;
 }
 
-
-.filled p,
 .primary-btn p {
   font-weight: bold;
   font-family: 'bold', sans-serif;
@@ -648,7 +569,7 @@ position: absolute;
 
 .dialog-sheet a,
 .dialog-sheet div {
-  color:  #000;
+  color:  #14171A;
   cursor: pointer;
   padding: 10px;
   border-bottom: 1px solid #eee;
@@ -674,7 +595,7 @@ position: absolute;
   top: 5px;
   font-size: 31px;
   font-weight: 100;
-  color: #000;
+  color: #14171A;
 }
 
 /*#closeDialogBtn:hover {
@@ -692,13 +613,13 @@ position: absolute;
   font-size: 21px;
 }
 
-.black-filled {
-  background: #000;
+/*.black-filled {
+  background: #14171A;
 }
 
 .black-filled p {
   color: #fff;
-}
+}*/
 
 .unselectable {
   -webkit-user-select: none;
@@ -712,7 +633,7 @@ position: absolute;
 .img-select-btn {
   cursor: pointer;
   text-align: center;
-  border: 2px solid gainsboro;
+  border: 2px solid #657786;
   padding: 82px 15px;
   border-style: dashed;
   border-width: medium;
@@ -756,7 +677,7 @@ position: absolute;
 .logo-container b {
   font-weight: bold;
   font-family: 'bold', sans-serif;
-  color: #000;
+  color: #14171A;
 }
 
 /*@media screen and (min-width: 320px) {
@@ -783,7 +704,7 @@ position: absolute;
 }*/
 
 header {
-  height: 45px;
+  height: 50px;
   position: fixed;
   width: 100vw;
   top: 0;
@@ -860,20 +781,6 @@ header {
   /*stroke: #fff;*/
   /*border: 2px solid var(--border-color);*/
   /*border-style: dashed;*/
-}
-
-.section-name {
-  font-weight: bold;
-  font-family: 'bold', sans-serif;
-  text-align: left;
-  font-size: 1.2rem;
-  margin: 10px 0;
-  margin-top: 17px;
-  color: #000;
-}
-
-.lg-txt {
-  font-size: 1.5rem;
 }
 
 main {
@@ -975,7 +882,7 @@ main {
 }
 
 .tab-bar .active-tab-item svg {
-  fill: #000;
+  fill: #14171A;
 }
 
 .post-content-wrapper {
@@ -1003,4 +910,34 @@ main {
 
 .following {
   margin-left: 10px;
+}
+
+.toast {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-family: 'bold';
+  height: 25px;
+  padding: 18px;
+  background: var(--primary-color);
+  width: 100vw;
+  left: 0;
+  color: #fff;
+  position: fixed;
+  bottom: 50px;
+  text-align: center;
+}
+
+.section-name {
+  font-weight: bold;
+  font-family: 'bold', sans-serif;
+  text-align: left;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  margin-top: 17px;
+  color: #14171A;
+}
+
+.lg-txt {
+  font-size: 1.8rem;
 }

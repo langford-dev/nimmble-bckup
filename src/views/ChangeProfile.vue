@@ -1,6 +1,6 @@
 <template>
   <div class="edit-profile-photo-page">
-    <BackHeader name="Edit profile photo" />
+    <BackHeader name="Change profile photo" />
     <div class="main">
       <div>
         <div class="photo-div" v-if="imgFile != null">
@@ -189,7 +189,8 @@ export default {
   height: 192px;
   border-radius: 200%;
   object-fit: cover;
-  background: gainsboro;
+  background: #e1e8ed;
+  border: 3px solid #1da1f2;
 }
 
 .preview {

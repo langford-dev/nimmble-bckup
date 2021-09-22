@@ -39,12 +39,12 @@
               height="27px"
               viewBox="0 0 24 24"
               aria-labelledby="bellIconTitle"
-              stroke="#000"
+              stroke="#14171A"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
               fill="none"
-              color="#000"
+              color="#14171A"
             >
               <title id="bellIconTitle">Bell</title>
               <path

@@ -10,7 +10,7 @@
               height="28"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#000"
+              stroke="#14171A"
               stroke-width="3"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -32,7 +32,7 @@
                 height="25"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#000"
+                stroke="#14171A"
                 stroke-width="4"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -49,8 +49,8 @@
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                fill="#000"
-                stroke="#000"
+                fill="#14171A"
+                stroke="#14171A"
                 stroke-width="3"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -240,7 +240,7 @@
       ref="topProgress"
       :height="topProgressHeight"
       colorShadow="=#ffffff00"
-      color="#00acee"
+      color="#1da1f2"
     ></vue-topprogress>
   </div>
 </template>

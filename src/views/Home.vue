@@ -13,16 +13,17 @@
               v-if="!hasAccount"
             />
           </div>
+          <!-- <p>Nimmble 💫</p> -->
         </div>
 
         <div class="logo" style="text-align: center">
-          <p style="">Nimmble 💫</p>
+          <p>Nimmble 💫</p>
         </div>
 
-        <div class="right center-div">
+        <div class="right center-div" style="margin-right: 15px">
           <router-link to="/" class='with-badge'>
             <div class="badge" v-if="messagesNum > 0">{{messagesNum}}</div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00acee" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1da1f2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           </router-link>
         </div>
       </div>
@@ -32,7 +33,7 @@
 
     <div class="post-content-wrapper">
       <PostContentCard
-        v-for="photo in photos"
+        v-for="photo in posts"
         :key="photo.id"
         class="post-item"
         :photo-url="photo.photo"
@@ -68,7 +69,7 @@ export default {
 
   data() {
     return {
-      photos: [],
+      posts: [],
       following: [],
 
       loading: true,
@@ -146,7 +147,7 @@ export default {
     async getMyFollowing() {
       await db
       .collection("Users")
-      .orderBy("lastPostTime", "desc")
+      .orderBy("lastPostTime", "asc")
       .onSnapshot(async (snapshot) => {
         await snapshot.forEach((doc) => {
           let person = doc.data();
@@ -155,26 +156,19 @@ export default {
           this.following.push(person.id);
         });
         
-        this.loadPhotos()
+        this.loadPosts()
       });
 
     },
 
-    async loadPhotos() {
-      // const following = await JSON.parse(localStorage.getItem("subscribedTo"));
-
-      // console.log(this.following)
+    async loadPosts() {
+      this.posts = []
       const followingArray = this.following
 
       var date = new Date();
-      date.setDate(date.getDate() - 4);
-
-      // console.log(following)
+      date.setDate(date.getDate() - 1);
 
       for (var i = followingArray.length; i--; ) {
-        // console.log(followingArray[i]);
-        // this.photos = [];
-
         if(followingArray[i] != localStorage.getItem('uid')) {
           await db
           .collection("Posts")
@@ -186,18 +180,11 @@ export default {
             await snapshot.forEach((doc) => {
               let photo = doc.data();
               photo.id = doc.id;
-              this.photos.push(photo);
+              this.posts.push(photo);
             });
           });
         } else;
       }
-
-      // setTimeout(() => {
-      //   this.loading = false;
-      //   console.log(this.photos.length);
-      //   if (this.photos.length <= 1)
-      //     alert("follow people to see interesting feed");
-      // }, 8000);
     },
   },
 };
@@ -219,9 +206,8 @@ export default {
 
   p {
     margin-left: 0;
-    font-weight: 500;
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
   }
 }
 
@@ -229,8 +215,12 @@ export default {
   width: 32px;
   height: 32px;
   object-fit: cover;
-  background: gainsboro;
+  background: #657786;
   margin-right: 10px;
   margin-top: 2px;
+}
+
+.header-wrapper {
+  padding-bottom: 6px;
 }
 </style>

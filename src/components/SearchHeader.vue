@@ -119,7 +119,7 @@ $body-color: #f8f9fb;
   // border-top: 1px solid #f4f4f4;
 
   a {
-    color: #000;
+    color: #14171A;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -174,7 +174,7 @@ header {
     align-items: center;
 
     a {
-      color: #000;
+      color: #14171A;
       margin: 0 20px;
       display: flex;
       align-items: center;

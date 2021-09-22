@@ -7,11 +7,11 @@
             <svg
                @click="goBack()"
               xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
+              width="18"
+              height="18"
               viewBox="0 0 25 25"
               fill="none"
-              stroke="#000"
+              stroke="#14171A"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -64,7 +64,7 @@
           <div class="name">
             {{ name }}
             <span v-if="isVerified && name != ''" class="verified-btn">
-              <svg width="15px" height="15px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="verifiedIconTitle" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#00acee" color="#000"> <title id="verifiedIconTitle">Verified</title> <path d="M8 12.5L10.5 15L16 9.5"/> <path d="M12 22C13.2363 22 14.2979 21.2522 14.7572 20.1843C14.9195 19.8068 15.4558 19.5847 15.8375 19.7368C16.9175 20.1672 18.1969 19.9453 19.0711 19.0711C19.9452 18.1969 20.1671 16.9175 19.7368 15.8376C19.5847 15.4558 19.8068 14.9195 20.1843 14.7572C21.2522 14.2979 22 13.2363 22 12C22 10.7637 21.2522 9.70214 20.1843 9.24282C19.8068 9.08046 19.5847 8.54419 19.7368 8.16246C20.1672 7.08254 19.9453 5.80311 19.0711 4.92894C18.1969 4.05477 16.9175 3.83286 15.8376 4.26321C15.4558 4.41534 14.9195 4.1932 14.7572 3.8157C14.2979 2.74778 13.2363 2 12 2C10.7637 2 9.70214 2.74777 9.24282 3.81569C9.08046 4.19318 8.54419 4.41531 8.16246 4.26319C7.08254 3.83284 5.80311 4.05474 4.92894 4.92891C4.05477 5.80308 3.83286 7.08251 4.26321 8.16243C4.41534 8.54417 4.1932 9.08046 3.8157 9.24282C2.74778 9.70213 2 10.7637 2 12C2 13.2363 2.74777 14.2979 3.81569 14.7572C4.19318 14.9195 4.41531 15.4558 4.26319 15.8375C3.83284 16.9175 4.05474 18.1969 4.92891 19.0711C5.80308 19.9452 7.08251 20.1671 8.16243 19.7368C8.54416 19.5847 9.08046 19.8068 9.24282 20.1843C9.70213 21.2522 10.7637 22 12 22Z"/> </svg>
+              <svg width="15px" height="15px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="verifiedIconTitle" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#1da1f2" color="#14171A"> <title id="verifiedIconTitle">Verified</title> <path d="M8 12.5L10.5 15L16 9.5"/> <path d="M12 22C13.2363 22 14.2979 21.2522 14.7572 20.1843C14.9195 19.8068 15.4558 19.5847 15.8375 19.7368C16.9175 20.1672 18.1969 19.9453 19.0711 19.0711C19.9452 18.1969 20.1671 16.9175 19.7368 15.8376C19.5847 15.4558 19.8068 14.9195 20.1843 14.7572C21.2522 14.2979 22 13.2363 22 12C22 10.7637 21.2522 9.70214 20.1843 9.24282C19.8068 9.08046 19.5847 8.54419 19.7368 8.16246C20.1672 7.08254 19.9453 5.80311 19.0711 4.92894C18.1969 4.05477 16.9175 3.83286 15.8376 4.26321C15.4558 4.41534 14.9195 4.1932 14.7572 3.8157C14.2979 2.74778 13.2363 2 12 2C10.7637 2 9.70214 2.74777 9.24282 3.81569C9.08046 4.19318 8.54419 4.41531 8.16246 4.26319C7.08254 3.83284 5.80311 4.05474 4.92894 4.92891C4.05477 5.80308 3.83286 7.08251 4.26321 8.16243C4.41534 8.54417 4.1932 9.08046 3.8157 9.24282C2.74778 9.70213 2 10.7637 2 12C2 13.2363 2.74777 14.2979 3.81569 14.7572C4.19318 14.9195 4.41531 15.4558 4.26319 15.8375C3.83284 16.9175 4.05474 18.1969 4.92891 19.0711C5.80308 19.9452 7.08251 20.1671 8.16243 19.7368C8.54416 19.5847 9.08046 19.8068 9.24282 20.1843C9.70213 21.2522 10.7637 22 12 22Z"/> </svg>
             </span>
           </div>
 
@@ -119,15 +119,15 @@
             <div
               @click="subscribe()"
               v-if="isSubscribed != null && !isSubscribed && !isMyAccount"
-              :style="!isSubscribed ? 'border-color: gainsboro' : ''"
-              class="primary-btn subscribe-btn subscribe-btn-default">
+              :style="!isSubscribed ? 'border-color: #f5f8fa' : ''"
+              class="subscribe-btn subscribe-btn-active">
               <p>Follow</p>
             </div>
 
             <div
               @click="subscribe()"
               v-if="isSubscribed != null && isSubscribed && !isMyAccount"
-              class="primary-alt-btn primary-btn subscribe-btn-default">
+              class="subscribe-btn-active">
               <p>Following</p>
             </div>
 
@@ -144,7 +144,7 @@
                   height="24"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#00acee"
+                  stroke="#1da1f2"
                   stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -171,7 +171,7 @@
                 height="23"
                 viewBox="0 0 24 24"
                 fill="none"
-                  stroke="#00acee"
+                  stroke="#1da1f2"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -190,7 +190,7 @@
                 height="17"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#00acee"
+                stroke="#1da1f2"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -221,7 +221,7 @@
             </div>
 
             <div class="icon-text" v-if="deviceType != null && deviceType != ''">
-              <svg role="img" xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" aria-labelledby="smartphoneIconTitle" stroke="#6a6a6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000"> <title id="smartphoneIconTitle">Smartphone</title> <path stroke-linejoin="round" d="M18,3 L18,21 C18,21.5522847 17.5522847,22 17,22 L7,22 C6.44771525,22 6,21.5522847 6,21 L6,3 C6,2.44771525 6.44771525,2 7,2 L17,2 C17.5522847,2 18,2.44771525 18,3 Z"/> <line x1="11" y1="19" x2="13" y2="19"/> </svg>
+              <svg role="img" xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" aria-labelledby="smartphoneIconTitle" stroke="#6a6a6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#14171A"> <title id="smartphoneIconTitle">Smartphone</title> <path stroke-linejoin="round" d="M18,3 L18,21 C18,21.5522847 17.5522847,22 17,22 L7,22 C6.44771525,22 6,21.5522847 6,21 L6,3 C6,2.44771525 6.44771525,2 7,2 L17,2 C17.5522847,2 18,2.44771525 18,3 Z"/> <line x1="11" y1="19" x2="13" y2="19"/> </svg>
 
               <p>{{ deviceType }} user</p>
             </div>
@@ -233,7 +233,7 @@
             </div>
 
             <div class="icon-text" v-if="work != null && work != ''">
-              <svg role="img" xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" aria-labelledby="suitcaseIconTitle" stroke="#6a6a6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000"> <title id="suitcaseIconTitle">Suitcase</title> <rect width="18" height="12" x="3" y="7"/> <rect width="8" height="4" x="8" y="3"/> </svg>
+              <svg role="img" xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" aria-labelledby="suitcaseIconTitle" stroke="#6a6a6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#14171A"> <title id="suitcaseIconTitle">Suitcase</title> <rect width="18" height="12" x="3" y="7"/> <rect width="8" height="4" x="8" y="3"/> </svg>
 
               <p>{{ work }}</p>
             </div>
@@ -247,12 +247,12 @@
                 <div class="suggested-user-text">
                   <b>
                     <span v-if="user.verified" class="verified-btn">
-                      <svg width="15px" height="15px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="verifiedIconTitle" stroke="#00acee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000"> <title id="verifiedIconTitle">Verified</title> <path d="M8 12.5L10.5 15L16 9.5"/> <path d="M12 22C13.2363 22 14.2979 21.2522 14.7572 20.1843C14.9195 19.8068 15.4558 19.5847 15.8375 19.7368C16.9175 20.1672 18.1969 19.9453 19.0711 19.0711C19.9452 18.1969 20.1671 16.9175 19.7368 15.8376C19.5847 15.4558 19.8068 14.9195 20.1843 14.7572C21.2522 14.2979 22 13.2363 22 12C22 10.7637 21.2522 9.70214 20.1843 9.24282C19.8068 9.08046 19.5847 8.54419 19.7368 8.16246C20.1672 7.08254 19.9453 5.80311 19.0711 4.92894C18.1969 4.05477 16.9175 3.83286 15.8376 4.26321C15.4558 4.41534 14.9195 4.1932 14.7572 3.8157C14.2979 2.74778 13.2363 2 12 2C10.7637 2 9.70214 2.74777 9.24282 3.81569C9.08046 4.19318 8.54419 4.41531 8.16246 4.26319C7.08254 3.83284 5.80311 4.05474 4.92894 4.92891C4.05477 5.80308 3.83286 7.08251 4.26321 8.16243C4.41534 8.54417 4.1932 9.08046 3.8157 9.24282C2.74778 9.70213 2 10.7637 2 12C2 13.2363 2.74777 14.2979 3.81569 14.7572C4.19318 14.9195 4.41531 15.4558 4.26319 15.8375C3.83284 16.9175 4.05474 18.1969 4.92891 19.0711C5.80308 19.9452 7.08251 20.1671 8.16243 19.7368C8.54416 19.5847 9.08046 19.8068 9.24282 20.1843C9.70213 21.2522 10.7637 22 12 22Z"/> </svg>
+                      <svg width="15px" height="15px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="verifiedIconTitle" stroke="#1da1f2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#14171A"> <title id="verifiedIconTitle">Verified</title> <path d="M8 12.5L10.5 15L16 9.5"/> <path d="M12 22C13.2363 22 14.2979 21.2522 14.7572 20.1843C14.9195 19.8068 15.4558 19.5847 15.8375 19.7368C16.9175 20.1672 18.1969 19.9453 19.0711 19.0711C19.9452 18.1969 20.1671 16.9175 19.7368 15.8376C19.5847 15.4558 19.8068 14.9195 20.1843 14.7572C21.2522 14.2979 22 13.2363 22 12C22 10.7637 21.2522 9.70214 20.1843 9.24282C19.8068 9.08046 19.5847 8.54419 19.7368 8.16246C20.1672 7.08254 19.9453 5.80311 19.0711 4.92894C18.1969 4.05477 16.9175 3.83286 15.8376 4.26321C15.4558 4.41534 14.9195 4.1932 14.7572 3.8157C14.2979 2.74778 13.2363 2 12 2C10.7637 2 9.70214 2.74777 9.24282 3.81569C9.08046 4.19318 8.54419 4.41531 8.16246 4.26319C7.08254 3.83284 5.80311 4.05474 4.92894 4.92891C4.05477 5.80308 3.83286 7.08251 4.26321 8.16243C4.41534 8.54417 4.1932 9.08046 3.8157 9.24282C2.74778 9.70213 2 10.7637 2 12C2 13.2363 2.74777 14.2979 3.81569 14.7572C4.19318 14.9195 4.41531 15.4558 4.26319 15.8375C3.83284 16.9175 4.05474 18.1969 4.92891 19.0711C5.80308 19.9452 7.08251 20.1671 8.16243 19.7368C8.54416 19.5847 9.08046 19.8068 9.24282 20.1843C9.70213 21.2522 10.7637 22 12 22Z"/> </svg>
                     </span>
                     {{user.name}}
                   </b>
                   <p>@{{user.username}}</p>
-                  <p class="suggested-user-about">{{user.about}}</p>
+                  <!-- <p class="suggested-user-about">{{user.about}}</p> -->
                 </div>
               </div>
             </div>
@@ -384,7 +384,7 @@
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#000"
+          stroke="#AAB8C2"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -410,7 +410,7 @@
           height="23"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#000"
+          stroke="#AAB8C2"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -432,7 +432,7 @@
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="black"
+          stroke="#AAB8C2"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -483,8 +483,8 @@
     <vue-topprogress
       ref="topProgress"
       :height="topProgressHeight"
-      colorShadow="=#00acee"
-      color="#00acee"
+      colorShadow="=#1da1f2"
+      color="#1da1f2"
     ></vue-topprogress>
 
     <!--     <div v-if="loading" class="loader">
@@ -1191,7 +1191,8 @@ export default {
 }
 
 .section-name {
-  color: #000;
+  color: #14171A;
+  margin-bottom: 15px;
 }
 
 .suggested-user-wrapper {
@@ -1240,7 +1241,7 @@ export default {
       object-fit: cover;
       border-radius: 100px;
       margin-right: 10px;
-      background: gainsboro;
+      background: #AAB8C2;
     }
     
     &:hover {
@@ -1250,8 +1251,7 @@ export default {
 }
 
 .page-name {
-  color: #000;
-  font-weight: bold;
+  color: #14171A;
   font-family: 'bold', sans-serif;
   font-size: 1.1rem;
   position: relative;
@@ -1282,16 +1282,17 @@ export default {
   margin-top: 22px;
 }
 
-.subscribe-btn-default {
-  margin-right: 8px;
+// .subscribe-btn-active {
+  // margin-right: 8px;
   // border: 1px solid #E6E7E7;
-}
+// }
 
 .subscribers-div {
   width: 100%;
   text-align: left;
   margin-bottom: 10px;
   display: flex;
+  margin-top: 8px;
 
   // div {
   //   display: flex;
@@ -1312,7 +1313,7 @@ export default {
 }
 
 b {
-  color: #000;
+  color: #14171A;
   font-weight: bold;
   font-family: 'bold', sans-serif;
 }
@@ -1338,7 +1339,20 @@ b {
 //   }
 // }
 
+
+.outline-btn {
+  background: none;
+  border: 1px solid #f3f3f3;
+  padding: 8px 20px;
+  padding-top: 13px;
+}
+
+.outline-btn p {
+  color: #1da1f2;
+}
+
 .info-text {
+  // margin-top: 18px;
   position: relative;
 }
 
@@ -1360,7 +1374,7 @@ b {
     margin-left: -5px;
     font-weight: bold;
     font-family: 'bold', sans-serif;
-    color: #000;
+    color: #14171A;
   }
 }
 
@@ -1378,20 +1392,11 @@ b {
 
   svg {
     margin: 0 10px;
-    border: 1px solid gainsboro;
+    border: 1px solid #f5f8fa;
     width: 32px;
     height: 32px;
     padding: 4px;
     border-radius: 100px;
-  }
-}
-
-.outline-btn {
-  background: none;
-  border: 1px solid gainsboro;
-
-  p {
-    color: #00acee;
   }
 }
 
@@ -1406,10 +1411,10 @@ b {
 .name {
   font-weight: bold;
   font-family: 'bold', sans-serif;
-  color: #000;
+  color: #14171A;
   font-size: 1.2rem;
   position: absolute;
-  top: -43px;
+  top: -38px;
   left: 126px;
 }
 
@@ -1436,7 +1441,7 @@ b {
   margin-bottom: -4px;
 
   .bold {
-    color: #000;
+    color: #14171A;
     font-weight: bold;
     font-family: 'bold', sans-serif;
   }
@@ -1453,7 +1458,7 @@ b {
   border-radius: 200%;
   -o-object-fit: cover;
   object-fit: cover;
-  background: #f4f4f4;
+  background: #e1e8ed;
   margin: auto;
   margin-bottom: -20px;
   margin-top: -64px;
@@ -1474,5 +1479,10 @@ b {
     position: relative;
     top: 6px;
   }
+}
+
+.logo-container svg {
+  width: 26px;
+  height: 26px;
 }
 </style>

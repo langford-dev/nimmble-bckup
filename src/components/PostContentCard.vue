@@ -15,7 +15,7 @@
             <div class="dot" v-if="posterName != ''"></div>
             <p class="post-date">{{newDate}}</p>
           </div>
-          <svg @click="showPostDialog = !showPostDialog" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9c9c9c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+          <svg @click="showPostDialog = !showPostDialog" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
         </div>
 
         <div class="content-section">
@@ -32,7 +32,7 @@
 
             <p class="repost-post-title" v-if="originalPostTitle != ''">{{originalPostTitle}}</p>
 
-            <div v-if="type != 'video' && type != 'text'" class="post-image-wrapper">
+            <div v-if="photoUrl != null && type != 'video' && type != 'text'" class="post-image-wrapper">
               <v-lazy-image
               class="repost-post-image"
               +
@@ -49,7 +49,7 @@
             </div>
           </div>
 
-          <div v-if="!isRepost && type != 'video' && type != 'text'" class="post-image-wrapper" @click="viewPost()">
+          <div v-if="!isRepost && photoUrl != null && type != 'video' && type != 'text'" class="post-image-wrapper" @click="viewPost()">
             <v-lazy-image
             class="post-image"
             :src="webp"
@@ -67,25 +67,31 @@
       
         <div class="post-action-bar">
           <div class="icon-and-number" @click="likePost()">
-            <svg v-if="!isLiked" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9c9c9c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <svg v-if="!isLiked" id="not-liked-btn" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
 
-            <svg v-if="isLiked" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="red" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span v-if="isLiked" class="">
+              <svg id="liked-btn" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="red" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </span>
 
-            <span v-if="likes > 0">{{ likes }}</span>
+            <span class="num" v-if="likes > 0">{{ likes }}</span>
           </div>
 
           <div class="icon-and-number" @click="viewPost()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9c9c9c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
 
-            <span v-if="comments > 0">{{ comments }}</span>
+            <span class="num" v-if="comments > 0">{{ comments }}</span>
           </div>
 
-          <div @click="repost()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9c9c9c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          <div class="icon-and-number" @click="repost()">
+            <svg v-if="isReposted" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0ace1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+
+            <svg v-if="!isReposted" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+
+            <span class="num" v-if="reposts > 0">{{ reposts }}</span>
           </div>
 
           <div @click="sharePost()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9c9c9c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#657786" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
           </div>
 
         </div>
@@ -106,7 +112,7 @@
           height="22"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#9c9c9c"
+          stroke="#AAB8C2"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -124,8 +130,8 @@
           width="22"
           height="22"
           viewBox="0 0 24 24"
-          fill="#9c9c9c"
-          stroke="#9c9c9c"
+          fill="#AAB8C2"
+          stroke="#AAB8C2"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -146,7 +152,7 @@
           height="22"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#9c9c9c"
+          stroke="#AAB8C2"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -167,7 +173,7 @@
           height="22"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#9c9c9c"
+          stroke="#AAB8C2"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -238,8 +244,10 @@ export default {
 
       likes: 0,
       isLiked: false,
+      isReposted: false,
       mentionsNum: 0,
       comments: 0,
+      reposts: 0,
 
       // loading: true,
       // hasCollection: false,
@@ -333,9 +341,12 @@ export default {
     this.getMentionsNum()
     this.convertDate()
     this.getLikesNum()
+    this.getRepostsNum()
     this.getComments()
     this.checkLiked()
-    this.checkSaved()
+    this.checkIsReposted()
+
+    // this.checkSaved()
     this.checkIsMyPhoto()
     this.checkLoaded()
     this.getPosterInfo()
@@ -404,12 +415,14 @@ export default {
     },
 
     async repost() {
-      this.$router.push({
-        name: "Repost",
-        params: {
-          id: this.id,
-        },
-      });
+      if (localStorage.getItem("uid") != null) {
+        this.$router.push({
+          name: "Repost",
+          params: {
+            id: this.id,
+          },
+        });
+      } else alert("please sign in");
     },
 
     async sendReport() {
@@ -478,6 +491,16 @@ export default {
         });
     },
 
+    async getRepostsNum() {
+      await db
+        .collection("Posts")
+        .doc(this.id)
+        .collection("Reposts")
+        .onSnapshot((doc) => {
+          this.reposts = this.formatNumbers(doc.size);
+        });
+    },
+
     formatNumbers(num) {
       if (num > 999 && num < 1000000) {
         return (num / 1000).toFixed(2) + "k";
@@ -491,6 +514,11 @@ export default {
     async likePost() {
       if (localStorage.getItem("uid") != null) {
         this.isLiked = !this.isLiked;
+        
+        //play like btn tap tone
+        var tone = new Audio(require('@/assets/sounds/like.wav'))
+        tone.volume = 0.2
+        tone.play()
 
         if (this.isLiked) {
           await db
@@ -503,7 +531,7 @@ export default {
               userId: localStorage.getItem("uid"),
             });
             
-            if(this.posterId != localStorage.getItem('uid')) this.sendAlert()
+            if(this.posterId != localStorage.getItem('uid')) this.sendLikeAlert()
         }
 
         if (!this.isLiked) {
@@ -517,49 +545,76 @@ export default {
       } else alert("please sign in");
     },
 
-    async sendAlert() {
+    async sendLikeAlert() {
       // console.log(this.posterId)
 
-      await db
-      .collection('Users')
-      .doc(this.posterId)
-      .collection('Notifications')
-      .add({
-        'type': 'like',
-        'notificationText': `${localStorage.getItem('name')} liked your post`,
-        'targetPageId': this.id,
-        'notificationTime': firebaseApp.serverTimestamp,
-        'userId': localStorage.getItem('uid'),
-        'username': localStorage.getItem('name'),
-        'targetText': null,
-        'isRead': false,
-      })
-
-      this.commentText = ''
+      if(!this.isLiked) {
+        await db
+        .collection('Users')
+        .doc(this.posterId)
+        .collection('Notifications')
+        .add({
+          'type': 'like',
+          'notificationText': `${localStorage.getItem('name')} liked your post`,
+          'targetPageId': this.id,
+          'notificationTime': firebaseApp.serverTimestamp,
+          'userId': localStorage.getItem('uid'),
+          'username': localStorage.getItem('name'),
+          'targetText': null,
+          'isRead': false,
+        })
+        this.commentText = ''
+      }
     },
 
     async checkLiked() {
       await db
-        .collection("Posts")
-        .doc(this.id)
-        .collection("Likes")
-        .doc(localStorage.getItem("uid"))
-        .get()
-        .then((doc) => {
-          if (doc.exists) {
-            // console.log('is liked!')
-            this.isLiked = true;
-          } else {
-            this.isLiked = false;
-            // console.log('not liked!')
-          }
-        });
+      .collection("Posts")
+      .doc(this.id)
+      .collection("Reposts")
+      .doc(localStorage.getItem("uid"))
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          // console.log('is liked!')
+          this.isReposted = true;
+        } else {
+          this.isReposted = false;
+          // console.log('not liked!')
+        }
+      });
+    },
+
+    async checkIsReposted() {
+      await db
+      .collection("Posts")
+      .doc(this.id)
+      .collection("Likes")
+      .doc(localStorage.getItem("uid"))
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          // console.log('is liked!')
+          this.isLiked = true;
+        } else {
+          this.isLiked = false;
+          // console.log('not liked!')
+        }
+      });
     },
 
     convertDate() {
       var dateValue = this.date.toDate();
-      var stringDate = new Date(this.date.seconds * 1000);
-      this.newDate = stringDate.toDateString();
+      var stringDate = new Date(this.date.seconds * 1000)
+
+
+      var day = Date(this.date).substring(8, 10)
+      var month = Date(this.date).substring(4, 7)
+      var year = Date(this.date).substring(11, 15)
+
+      this.newDate = `${day} ${month} ${year}`
+
+      // **** time **** console.log(Date(this.date).substring(16, 21));
     },
 
     intersected() {
@@ -749,60 +804,60 @@ export default {
         });
     },
 
-    async save() {
-      const myId = localStorage.getItem("uid");
+    // async save() {
+    //   const myId = localStorage.getItem("uid");
 
-      if (myId != null) {
-        this.isSaved = true;
-        this.showPostDialog = false;
+    //   if (myId != null) {
+    //     this.isSaved = true;
+    //     this.showPostDialog = false;
 
-        await db
-          .collection("Users")
-          .doc(myId)
-          .collection("Saved")
-          .doc(this.newId)
-          .set({
-            'posterUid': this.posterId,
-            'photo': this.photoUrl,
-            'thumbnail': this.thumbnail,
-            'type': this.type,
-            'title': this.title,
-            'tag': this.tags,
-            'savedTime': firebaseApp.serverTimestamp,
-            'postTime': this.date,
-            'postId': this.newId,
-          })
-          .catch((err) => {
-            console.log(err.message);
-          });
-      } else {
-        alert("Oops! login to save photos");
-      }
-    },
+    //     await db
+    //       .collection("Users")
+    //       .doc(myId)
+    //       .collection("Saved")
+    //       .doc(this.newId)
+    //       .set({
+    //         'posterUid': this.posterId,
+    //         'photo': this.photoUrl,
+    //         'thumbnail': this.thumbnail,
+    //         'type': this.type,
+    //         'title': this.title,
+    //         'tag': this.tags,
+    //         'savedTime': firebaseApp.serverTimestamp,
+    //         'postTime': this.date,
+    //         'postId': this.newId,
+    //       })
+    //       .catch((err) => {
+    //         console.log(err.message);
+    //       });
+    //   } else {
+    //     alert("Oops! login to save photos");
+    //   }
+    // },
 
-    async removeSaved() {
-      const myId = localStorage.getItem("uid");
+    // async removeSaved() {
+    //   const myId = localStorage.getItem("uid");
 
-      if (myId != null) {
-        this.isSaved = false;
-        this.showPostDialog = false;
+    //   if (myId != null) {
+    //     this.isSaved = false;
+    //     this.showPostDialog = false;
 
-        await db
-          .collection("Users")
-          .doc(myId)
-          .collection("Saved")
-          .doc(this.newId)
-          .delete()
-          .then(() => {
-            this.checkSaved();
-          })
-          .catch((err) => {
-            console.log(err.message);
-          });
-      } else {
-        alert("Oops! login to remove photos");
-      }
-    },
+    //     await db
+    //       .collection("Users")
+    //       .doc(myId)
+    //       .collection("Saved")
+    //       .doc(this.newId)
+    //       .delete()
+    //       .then(() => {
+    //         this.checkSaved();
+    //       })
+    //       .catch((err) => {
+    //         console.log(err.message);
+    //       });
+    //   } else {
+    //     alert("Oops! login to remove photos");
+    //   }
+    // },
 
     async sharePost() {
       this.showPostDialog = false;
@@ -874,15 +929,15 @@ export default {
 <style lang="scss" scoped>
 * {
   font-size: .92rem;
-  color: #9c9c9c;
+  color: #657786;
 }
 
 .bold {
-  color: #000
+  color: #14171A
 }
 
 .post-title {
-  color: #000;
+  color: #14171A;
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -890,9 +945,66 @@ export default {
   overflow: hidden;
 }
 
+#liked-btn {
+  border-radius: 100px;
+  width: 17px;
+  height: 17px;
+  // position: absolute;
+  animation: likePress .5s ease-out;
+  
+}
+
+.animated-btn {
+}
+
+@keyframes likePress {
+  0% {
+    border: 1px solid red;
+    border-color: yellow;
+    width: 30px;
+    height: 30px;
+    
+    transform: scale(1.5)
+  }
+  
+  30% {
+    padding: 5px;
+    border-color: #1da1f2;
+    transform: scale(1.2)
+  }
+
+  50% {
+    border-color: green;
+    // border-color: green;
+    // transform: scale(0.9)
+  }
+  
+  100% {
+    width: 17px;
+    height: 17px;
+    border: none;
+    padding: 0;
+    // transform: scale(1)
+  }
+}
+
+.liked-btn::after {
+  // content: '';
+  // margin: auto;
+  // display: block;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  // height: 100%;
+  // padding: 2px;
+  // border: 1px solid 1da1f2;
+  // border-radius: 100px;
+}
+
 .dot {
   top: 0;
-  background: #9c9c9c
+  background: #657786
 }
 
 svg {
@@ -920,7 +1032,7 @@ svg {
   object-fit: cover;
   margin-right: 10px;
   border-radius: 100px;
-  background: gainsboro;
+  background: #AAB8C2;
 }
 
 .post-card {
@@ -929,7 +1041,7 @@ svg {
   justify-content: flex-start;
   padding: 10px 15px;
   width: 100%;
-  border-bottom: 1px solid #E6E7E755;
+  border-bottom: 1px solid #f5f8fa;
 }
 
 .post-card .user-profile-photo {
@@ -938,7 +1050,7 @@ svg {
   object-fit: cover;
   margin-right: 10px;
   border-radius: 100px;
-  background: gainsboro;
+  background: #AAB8C2;
 }
 
 .top-section .top-section-wrapper {
@@ -948,7 +1060,7 @@ svg {
 }
 
 .repost-post-title {
-  color: #000;
+  color: #14171A;
   margin-top: 3px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -959,11 +1071,11 @@ svg {
 .bold {
   font-weight: bold;
   font-family: 'bold';
-  color: #000;
+  color: #14171A;
 }
 
 .grey {
-  color: #9c9c9c;
+  color: #657786;
 }
 
 .repost-tag {
@@ -971,7 +1083,7 @@ svg {
 }
 
 .post-title {
-  color: #000;
+  color: #14171A;
 }
 
 .content-section {
@@ -1002,24 +1114,26 @@ svg {
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
-  background: gainsboro;
+  background: #AAB8C2;
   border-radius: 13px;
-  margin-top: 8px;
+  margin-top: 9px;
+  border: 1px solid #E6E7E7;
 }
 
 .repost-post-image {
   min-height: 130px;
-  max-height: 200px;
-  width: 108%;
+  width: 111%;
   -o-object-fit: cover;
   object-fit: cover;
-  background: gainsboro;
+  background: #AAB8C2;
   border-radius: 13px;
-  margin-top: 8px;
-  margin-left: -10px;
+  margin-top: 9px;
+  margin-left: -12px;
   margin-bottom: -14px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  border-top: 1px solid #E6E7E7;
+  max-height: 300px;
 }
 
 .post-image-wrapper {
@@ -1030,7 +1144,7 @@ svg {
   position: absolute;
   top: 37%;
   left: 41%;
-  background: #00acee;
+  background: 1da1f2;
   padding: 7px;
   padding-left: 7px;
   border-radius: 100px;
@@ -1044,10 +1158,20 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 35px;
+  height: 25px;
+  margin-left: -5px;
 }
 
 .icon-and-number span {
-  margin-left: 3px;
+  margin-left: 2px;
+}
+
+.num {
+  font-size: 15px;
+  position: relative;
+  top: -1px;
+  left: 5px;
 }
 
 .post-action-bar {
@@ -1055,5 +1179,18 @@ svg {
   align-items: center;
   justify-content: space-between;
   margin-top: 5px;
+  width: 100%;
+
+  svg:hover {
+    // background: #f5f8fa;
+    // border-radius: 100px;
+    // width: 30px;
+    // height: 30px;
+    // padding: 6px;
+  }
+}
+
+#not-liked-btn {
+  margin-left: 0;
 }
 </style>

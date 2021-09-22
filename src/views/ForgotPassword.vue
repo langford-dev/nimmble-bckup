@@ -102,7 +102,7 @@ export default {
 }
 
 .no-account-link {
-  color: #000;
+  color: #14171A;
 
   a {
     // color: red;
